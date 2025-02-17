@@ -197,28 +197,47 @@ mamba list
 Estos comandos te ayudarán a gestionar eficientemente los entornos virtuales con Mamba.
 
 ---
-
 ## 2. Instalación de WSL en Windows
 
 WSL permite ejecutar un entorno Linux en Windows sin necesidad de una máquina virtual.
 
-### 2.1 Habilitar WSL
+### 2.1 Requisitos previos
 
-Ejecuta en PowerShell como Administrador:
+Antes de instalar WSL, es necesario descargar e instalar **Microsoft Visual C++ Redistributable**:
+
+1. Ve al siguiente enlace: [Última versión de VC++ Redistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170)
+2. Descarga la versión **x86**.
+3. Instala el paquete descargado.
+
+### 2.2 Habilitar WSL
+
+Ejecuta en **Windows PowerShell** como Administrador:
 
 ```powershell
 wsl --install
 ```
 
-Esto instalará WSL con la distribución predeterminada (Ubuntu). Si ya tienes WSL instalado, puedes actualizarlo con:
+Esto instalará WSL junto con la distribución predeterminada (Ubuntu). Si ya tienes WSL instalado, puedes actualizarlo con:
 
 ```powershell
 wsl --update
 ```
 
-### 2.2 Verificar Instalación
+### 2.3 Configurar Ubuntu tras la instalación
 
-Para verificar que WSL está instalado, ejecuta:
+1. Una vez completada la instalación, se descargará **Ubuntu** por defecto.
+2. Se te pedirá que configures un nombre de usuario y una contraseña.
+3. Luego, cierra la terminal.
+
+### 2.4 Abrir Ubuntu en Windows
+
+1. Dirígete al **buscador de Windows** y abre la aplicación **Ubuntu**.
+2. Si por alguna razón la aplicación no aparece, puedes descargarla desde la Microsoft Store en el siguiente enlace:
+   - [Descargar Ubuntu](https://apps.microsoft.com/detail/9pdxgncfsczv?hl=es-ES&gl=ES)
+
+### 2.5 Verificar Instalación
+
+Para verificar que WSL está instalado correctamente, ejecuta:
 
 ```powershell
 wsl --list --verbose
@@ -226,13 +245,39 @@ wsl --list --verbose
 
 Esto mostrará las distribuciones instaladas y su estado.
 
-### 2.3 Instalar una Distribución Específica
+### 2.6 Instalar una Distribución Específica
 
-Para instalar una distribución diferente, usa:
+Si deseas instalar una distribución diferente, usa el siguiente comando:
 
 ```powershell
-wsl --install -d Ubuntu
+wsl --install -d <Distribución>
 ```
 
-Reemplaza `Ubuntu` con la distribución deseada.
+Reemplaza `<Distribución>` con el nombre de la distribución deseada, por ejemplo:
 
+```powershell
+wsl --install -d Debian
+```
+
+### 2.7 Actualizar y configurar Ubuntu
+
+Una vez dentro de la terminal de Ubuntu, ejecuta:
+
+```bash
+sudo apt update && sudo apt upgrade
+```
+
+Esto actualizará los paquetes del sistema a la última versión disponible.
+
+### 2.8 Referencia al tutorial original
+
+Este tutorial está basado en el siguiente video:
+[Ver tutorial en YouTube](https://youtu.be/xJtmj6hX5Lg?si=3TqBPOITtpBmX52l&t=791)
+
+### 3. Fuentes adicionales
+
+Para más información sobre instalación y configuración, consulta los siguientes enlaces:
+- [Instalación de TensorFlow con pip](https://www.tensorflow.org/install/pip?hl=es-419)
+- [Repositorio de Miniforge en GitHub](https://github.com/conda-forge/miniforge)
+
+---
